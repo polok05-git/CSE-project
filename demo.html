@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSE Batch 2019 | Department of Computer Science & Engineering</title>
+
+<style>
+
+
+  :root {
+    --navy: #1a2744;
+    --gold: #b8860b;
+    --gold-light: #d4a017;
+    --cream: #f8f6f0;
+    --white: #ffffff;
+    --gray-100: #f2f0ea;
+    --gray-300: #c8c4b8;
+    --gray-500: #7a7569;
+    --gray-700: #3d3a33;
+    --red-accent: #8b1a1a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    background: var(--cream);
+    color: var(--gray-700);
+  }
+
+  /* ── TOP BAR ── */
+  .top-bar {
+    background: var(--navy);
+    color: var(--gray-300);
+    font-size: 0.75rem;
+    padding: 6px 0;
+    text-align: center;
+    letter-spacing: 0.04em;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: var(--white);
+    border-bottom: 4px solid var(--gold);
+    padding: 0;
+  }
+
+  .header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 18px 24px;
+  }
+
+  .uni-seal {
+    width: 72px;
+    height: 72px;
+    background: var(--navy);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-family: 'Merriweather', serif;
+    color: var(--gold);
+    font-size: 1.6rem;
+    font-weight: 700;
+    border: 3px solid var(--gold);
+  }
+
+  .header-text h1 {
+    font-family: 'Merriweather', serif;
+    font-size: 1.45rem;
+    color: var(--navy);
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  .header-text p {
+    font-size: 0.88rem;
+    color: var(--gray-500);
+    margin-top: 3px;
+    letter-spacing: 0.02em;
+  }
+
+  /* ── NAV ── */
+  nav {
+    background: var(--navy);
+  }
+
+  nav ul {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    list-style: none;
+    padding: 0 24px;
+  }
+
+  nav ul li a {
+    display: block;
+    color: #cbd5e8;
+    text-decoration: none;
+    padding: 13px 18px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  nav ul li a:hover,
+  nav ul li a.active {
+    background: var(--gold);
+    color: var(--navy);
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(135deg, var(--navy) 0%, #263560 100%);
+    color: var(--white);
+    padding: 64px 24px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 40px,
+      rgba(184,134,11,0.04) 40px,
+      rgba(184,134,11,0.04) 80px
+    );
+  }
+
+  .hero-content { position: relative; max-width: 700px; margin: 0 auto; }
+
+  .hero-badge {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--navy);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 5px 16px;
+    margin-bottom: 20px;
+  }
+
+  .hero h2 {
+    font-family: 'Merriweather', serif;
+    font-size: 2.6rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+
+  .hero h2 span { color: var(--gold-light); }
+
+  .hero p {
+    font-size: 1.05rem;
+    color: #a8b8d8;
+    margin-bottom: 32px;
+    font-family: 'Source Serif 4', serif;
+    font-style: italic;
+  }
+
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    padding-top: 28px;
+  }
+
+  .stat-item { text-align: center; }
+
+  .stat-num {
+    font-family: 'Merriweather', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--gold-light);
+  }
+
+  .stat-label {
+    font-size: 0.78rem;
+    color: #8898b8;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-top: 2px;
+  }
+
+  /* ── SECTION WRAPPER ── */
+  .section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 56px 24px;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 36px;
+    padding-bottom: 14px;
+    border-bottom: 2px solid var(--navy);
+  }
+
+  .section-header h3 {
+    font-family: 'Merriweather', serif;
+    font-size: 1.5rem;
+    color: var(--navy);
+    font-weight: 700;
+  }
+
+  .section-header .tag {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid var(--gold);
+    padding: 2px 10px;
+  }
+
+  /* ── MEMBERS ── */
+  .members-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+  }
+
+  .member-card {
+    background: var(--white);
+    border: 1px solid #ddd8cc;
+    border-top: 3px solid var(--navy);
+    padding: 20px 16px;
+    text-align: center;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+
+  .member-card:hover {
+    box-shadow: 0 6px 20px rgba(26,39,68,0.12);
+    transform: translateY(-2px);
+  }
+
+  .member-avatar {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: var(--navy);
+    margin: 0 auto 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Merriweather', serif;
+    font-size: 1.5rem;
+    color: var(--gold);
+    font-weight: 700;
+  }
+
+  .member-name {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+
+  .member-roll {
+    font-size: 0.78rem;
+    color: var(--gray-500);
+    letter-spacing: 0.03em;
+    margin-bottom: 8px;
+  }
+
+  .member-tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 2px 8px;
+    background: var(--gray-100);
+    color: var(--gray-500);
+  }
+
+  .member-tag.cr { background: #1a2744; color: var(--gold); }
+
+  /* ── GALLERY ── */
+  .gallery-bg { background: var(--navy); }
+
+  .gallery-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 56px 24px;
+  }
+
+  .gallery-header {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 36px;
+    padding-bottom: 14px;
+    border-bottom: 2px solid var(--gold);
+  }
+
+  .gallery-header h3 {
+    font-family: 'Merriweather', serif;
+    font-size: 1.5rem;
+    color: var(--white);
+    font-weight: 700;
+  }
+
+  .gallery-header .tag {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid var(--gold);
+    padding: 2px 10px;
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 200px 200px;
+    gap: 8px;
+  }
+
+  .gallery-item {
+    background: #263560;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    color: rgba(184,134,11,0.5);
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+  }
+
+  .gallery-item:first-child {
+    grid-row: span 2;
+    font-size: 3.5rem;
+  }
+
+  .gallery-item:hover::after {
+    content: 'View';
+    position: absolute;
+    inset: 0;
+    background: rgba(26,39,68,0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold);
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .gallery-caption {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.7));
+    color: var(--white);
+    font-size: 0.78rem;
+    padding: 20px 10px 8px;
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+
+  .gallery-item:hover .gallery-caption { opacity: 1; }
+
+  /* ── NOTICES ── */
+  .notices-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 28px;
+    align-items: start;
+  }
+
+  .notice-list { display: flex; flex-direction: column; gap: 0; }
+
+  .notice-item {
+    display: flex;
+    gap: 16px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--gray-300);
+  }
+
+  .notice-date {
+    flex-shrink: 0;
+    width: 52px;
+    text-align: center;
+    background: var(--navy);
+    color: var(--white);
+    padding: 8px 4px;
+    align-self: flex-start;
+  }
+
+  .notice-date .day {
+    display: block;
+    font-family: 'Merriweather', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--gold-light);
+    line-height: 1;
+  }
+
+  .notice-date .month {
+    display: block;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #8898b8;
+    margin-top: 2px;
+  }
+
+  .notice-body { flex: 1; }
+
+  .notice-body h4 {
+    font-weight: 700;
+    font-size: 0.98rem;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+
+  .notice-body p {
+    font-size: 0.85rem;
+    color: var(--gray-500);
+    line-height: 1.5;
+  }
+
+  .notice-pill {
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 2px 8px;
+    margin-top: 6px;
+  }
+
+  .notice-pill.exam { background: #8b1a1a; color: var(--white); }
+  .notice-pill.event { background: var(--gold); color: var(--navy); }
+  .notice-pill.notice { background: var(--navy); color: var(--gold); }
+
+  .upcoming-card {
+    background: var(--white);
+    border: 1px solid #ddd8cc;
+    border-left: 4px solid var(--gold);
+    padding: 20px;
+  }
+
+  .upcoming-card h4 {
+    font-family: 'Merriweather', serif;
+    font-size: 1rem;
+    color: var(--navy);
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--gray-300);
+  }
+
+  .upcoming-event {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 14px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--gray-100);
+  }
+
+  .upcoming-event:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+  .event-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--gold);
+    flex-shrink: 0;
+    margin-top: 5px;
+  }
+
+  .event-info { font-size: 0.85rem; }
+  .event-info strong { display: block; color: var(--navy); font-weight: 700; }
+  .event-info span { color: var(--gray-500); font-size: 0.78rem; }
+
+  /* ── CONTACT ── */
+  .contact-bg { background: var(--gray-100); border-top: 1px solid var(--gray-300); }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .contact-card {
+    background: var(--white);
+    border: 1px solid #ddd8cc;
+    border-top: 3px solid var(--navy);
+    padding: 24px 20px;
+  }
+
+  .contact-card h4 {
+    font-family: 'Merriweather', serif;
+    font-size: 0.98rem;
+    color: var(--navy);
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--gray-300);
+  }
+
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 0;
+    color: var(--gray-700);
+    text-decoration: none;
+    font-size: 0.88rem;
+    transition: color 0.15s;
+    border-bottom: 1px solid var(--gray-100);
+  }
+
+  .contact-link:last-child { border-bottom: none; }
+
+  .contact-link:hover { color: var(--navy); }
+
+  .contact-icon {
+    width: 28px;
+    height: 28px;
+    background: var(--navy);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--navy);
+    color: #8898b8;
+    text-align: center;
+    padding: 28px 24px;
+    font-size: 0.82rem;
+  }
+
+  footer strong { color: var(--gold); }
+
+  .footer-rule {
+    width: 60px;
+    height: 2px;
+    background: var(--gold);
+    margin: 12px auto;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .hero h2 { font-size: 1.8rem; }
+    .hero-stats { gap: 24px; }
+    .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+    .gallery-item:first-child { grid-row: span 1; }
+    .notices-grid { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; }
+    nav ul { flex-direction: column; display: none; }
+    nav ul.open { display: flex; }
+    #menuBtn { display: block !important; }
+    nav ul li a { padding: 10px 20px; font-size: 0.88rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .members-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+  }
+
+  /* ── DARK MODE ── */
+  body.dark-mode { background: #0d1117 !important; color: #c9d1d9 !important; }
+  body.dark-mode header { background: #161b22 !important; }
+  body.dark-mode .member-card,
+  body.dark-mode .upcoming-card,
+  body.dark-mode .contact-card { background: #161b22 !important; border-color: #30363d !important; }
+  body.dark-mode .member-name,
+  body.dark-mode .notice-body h4,
+  body.dark-mode .section-header h3 { color: #e6edf3 !important; }
+  body.dark-mode .notice-item { border-color: #30363d !important; }
+  body.dark-mode .contact-bg { background: #010409 !important; }
+
+  /* ── SEARCH & FILTER BAR ── */
+  .search-bar {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .search-bar input {
+    flex: 1;
+    min-width: 200px;
+    padding: 10px 14px;
+    border: 1px solid var(--gray-300);
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.9rem;
+    outline: none;
+    background: var(--white);
+  }
+  .search-bar input:focus { border-color: var(--navy); }
+  .filter-btn {
+    padding: 9px 16px;
+    border: 1px solid var(--navy);
+    background: transparent;
+    color: var(--navy);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    font-family: 'Source Sans 3', sans-serif;
+  }
+  .filter-btn:hover, .filter-btn.active {
+    background: var(--navy);
+    color: var(--gold);
+  }
+
+  /* ── NOTICE FORM ── */
+  .notice-form {
+    background: var(--gray-100);
+    border: 1px solid var(--gray-300);
+    border-left: 4px solid var(--navy);
+    padding: 20px;
+    margin-bottom: 24px;
+  }
+  .notice-form h4 {
+    font-family: 'Merriweather', serif;
+    font-size: 0.95rem;
+    color: var(--navy);
+    margin-bottom: 14px;
+  }
+  .notice-form input,
+  .notice-form select,
+  .notice-form textarea {
+    width: 100%;
+    padding: 9px 12px;
+    border: 1px solid var(--gray-300);
+    margin-bottom: 10px;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.88rem;
+    background: var(--white);
+    outline: none;
+  }
+  .notice-form input:focus,
+  .notice-form select:focus { border-color: var(--navy); }
+  .notice-form button {
+    background: var(--navy);
+    color: var(--gold);
+    border: none;
+    padding: 10px 20px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    font-family: 'Source Sans 3', sans-serif;
+    text-transform: uppercase;
+    transition: background 0.2s;
+  }
+  .notice-form button:hover { background: #263560; }
+
+  /* ── DARK MODE BUTTON ── */
+  #darkBtn {
+    background: transparent;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    padding: 6px 14px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 600;
+    margin-left: auto;
+    transition: background 0.2s;
+  }
+  #darkBtn:hover { background: var(--gold); color: var(--navy); }
+
+  /* ── LIGHTBOX ── */
+  #lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.88);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  #lightbox.open { display: flex; }
+  .lb-close, .lb-prev, .lb-next {
+    position: absolute;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2.2rem;
+    cursor: pointer;
+    transition: color 0.2s;
+  }
+  .lb-close:hover, .lb-prev:hover, .lb-next:hover { color: var(--gold-light); }
+  .lb-close { top: 20px; right: 28px; }
+  .lb-prev { left: 20px; }
+  .lb-next { right: 20px; }
+  #lbContent { font-size: 6rem; }
+  #lbCaption {
+    position: absolute;
+    bottom: 30px;
+    color: var(--gold-light);
+    font-size: 1rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  Department of Computer Science &amp; Engineering &nbsp;|&nbsp; Batch 2019 Official Page
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <div class="uni-seal">CSE</div>
+    <div class="header-text">
+      <h1>Department of Computer Science &amp; Engineering</h1>
+      <p>Batch 2019 &mdash; Official Student Page &nbsp;&bull;&nbsp; Session 2019–2023</p>
+    </div>
+    <button id="darkBtn" onclick="toggleDarkMode()">🌙 Dark Mode</button>
+  </div>
+</header>
+
+<!-- NAV -->
+<nav>
+  <button id="menuBtn" onclick="toggleMenu()" style="display:none; width:100%; background:#1a2744; color:#d4a017; border:none; padding:12px 20px; font-size:1rem; cursor:pointer; text-align:left; font-weight:700; letter-spacing:0.05em;">☰ MENU</button>
+  <ul>
+    <li><a href="#members" class="active">Members</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#notices">Notice Board</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">CSE Batch &rsquo;19</div>
+    <h2>One Batch. <span>One Legacy.</span></h2>
+    <p>"Knowledge is not a possession, it is a journey we share."</p>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">60</div>
+        <div class="stat-label">Students</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">4</div>
+        <div class="stat-label">Years Together</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">2023</div>
+        <div class="stat-label">Graduation Year</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MEMBERS -->
+<div id="members">
+  <div class="section">
+    <div class="section-header">
+      <h3>Batch Members</h3>
+      <span class="tag">Class of 2019</span>
+    </div>
+
+    <!-- Search & Filter -->
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="🔍 নাম বা Roll নম্বর লিখুন..." />
+      <button class="filter-btn active" onclick="filterMembers('all', this)">সবাই</button>
+      <button class="filter-btn" onclick="filterMembers('CR', this)">CR</button>
+      <button class="filter-btn" onclick="filterMembers('ACR', this)">ACR</button>
+      <button class="filter-btn" onclick="filterMembers('Member', this)">Member</button>
+    </div>
+
+    <div class="members-grid">
+
+      <div class="member-card">
+        <div class="member-avatar">R</div>
+        <div class="member-name">Rahim Uddin</div>
+        <div class="member-roll">Roll: 1901001</div>
+        <span class="member-tag cr">CR</span>
+      </div>
+
+      <div class="member-card">
+        <div class="member-avatar">K</div>
+        <div class="member-name">Karim Hassan</div>
+        <div class="member-roll">Roll: 1901002</div>
+        <span class="member-tag">ACR</span>
+      </div>
+
+      <div class="member-card">
+        <div class="member-avatar">S</div>
+        <div class="member-name">Sadia Islam</div>
+        <div class="member-roll">Roll: 1901003</div>
+        <span class="member-tag">Member</span>
+      </div>
+
+      <div class="member-card">
+        <div class="member-avatar">T</div>
+        <div class="member-name">Tanvir Ahmed</div>
+        <div class="member-roll">Roll: 1901004</div>
+        <span class="member-tag">Member</span>
+      </div>
+
+      <div class="member-card">
+        <div class="member-avatar">N</div>
+        <div class="member-name">Nusrat Jahan</div>
+        <div class="member-roll">Roll: 1901005</div>
+        <span class="member-tag">Member</span>
+      </div>
+
+      <div class="member-card">
+        <div class="member-avatar">F</div>
+        <div class="member-name">Farhan Hossain</div>
+        <div class="member-roll">Roll: 1901006</div>
+        <span class="member-tag">Member</span>
+      </div>
+
+      <div class="member-card">
+        <div class="member-avatar">M</div>
+        <div class="member-name">Mahia Sultana</div>
+        <div class="member-roll">Roll: 1901007</div>
+        <span class="member-tag">Member</span>
+      </div>
+
+      <div class="member-card">
+        <div class="member-avatar">A</div>
+        <div class="member-name">Arif Rahman</div>
+        <div class="member-roll">Roll: 1901008</div>
+        <span class="member-tag">Member</span>
+      </div>
+
+      <div class="member-card">
+        <div class="member-avatar">J</div>
+        <div class="member-name">Jannatul Ferdaus</div>
+        <div class="member-roll">Roll: 1901009</div>
+        <span class="member-tag">Member</span>
+      </div>
+
+      <div class="member-card">
+        <div class="member-avatar">I</div>
+        <div class="member-name">Imran Chowdhury</div>
+        <div class="member-roll">Roll: 1901010</div>
+        <span class="member-tag">Member</span>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- GALLERY -->
+<div id="gallery" class="gallery-bg">
+  <div class="gallery-inner">
+    <div class="gallery-header">
+      <h3>Photo Gallery</h3>
+      <span class="tag">Memories</span>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item" style="font-size:3rem;">🎓
+        <div class="gallery-caption">Convocation 2023</div>
+      </div>
+      <div class="gallery-item">🏆
+        <div class="gallery-caption">Programming Contest</div>
+      </div>
+      <div class="gallery-item">🏕️
+        <div class="gallery-caption">Study Tour</div>
+      </div>
+      <div class="gallery-item">💻
+        <div class="gallery-caption">Hackathon 2022</div>
+      </div>
+      <div class="gallery-item">🎉
+        <div class="gallery-caption">Batch Party</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- NOTICES -->
+<div id="notices">
+  <div class="section">
+    <div class="section-header">
+      <h3>Notice Board</h3>
+      <span class="tag">Updates</span>
+    </div>
+    <div class="notices-grid">
+      <div>
+        <!-- Notice Add Form -->
+        <div class="notice-form">
+          <h4>➕ নতুন Notice যোগ করুন</h4>
+          <input type="text" id="noticeTitle" placeholder="Notice-এর শিরোনাম..." />
+          <textarea id="noticeDesc" rows="2" placeholder="বিস্তারিত লিখুন..."></textarea>
+          <select id="noticeType">
+            <option value="notice">📋 Notice</option>
+            <option value="exam">📝 Exam</option>
+            <option value="event">🎉 Event</option>
+          </select>
+          <button onclick="addNotice()">✅ Notice যোগ করুন</button>
+        </div>
+
+        <div class="notice-list">
+
+        <div class="notice-item">
+          <div class="notice-date">
+            <span class="day">28</span>
+            <span class="month">Jun</span>
+          </div>
+          <div class="notice-body">
+            <h4>Final Year Project Submission Deadline</h4>
+            <p>All FYP reports must be submitted to the departmental office by 5:00 PM. Soft copy via university portal mandatory.</p>
+            <span class="notice-pill exam">Exam</span>
+          </div>
+        </div>
+
+        <div class="notice-item">
+          <div class="notice-date">
+            <span class="day">22</span>
+            <span class="month">Jun</span>
+          </div>
+          <div class="notice-body">
+            <h4>Reunion Planning Meeting</h4>
+            <p>Batch 2019 reunion committee meeting at CS Seminar Hall, 4 PM. All interested members are encouraged to attend.</p>
+            <span class="notice-pill event">Event</span>
+          </div>
+        </div>
+
+        <div class="notice-item">
+          <div class="notice-date">
+            <span class="day">15</span>
+            <span class="month">Jun</span>
+          </div>
+          <div class="notice-body">
+            <h4>Job Fair 2026 — Registration Open</h4>
+            <p>Department is organizing annual job fair. Alumni are requested to register as participants and spread the word.</p>
+            <span class="notice-pill notice">Notice</span>
+          </div>
+        </div>
+
+        <div class="notice-item">
+          <div class="notice-date">
+            <span class="day">08</span>
+            <span class="month">Jun</span>
+          </div>
+          <div class="notice-body">
+            <h4>Semester Result Published</h4>
+            <p>Results for the 8th semester are now available on the university portal. Any discrepancy must be reported within 7 days.</p>
+            <span class="notice-pill exam">Exam</span>
+          </div>
+        </div>
+
+      </div><!-- end notice-list -->
+      </div><!-- end notice-form wrapper -->
+
+      <div class="upcoming-card">
+        <h4>⏰ Upcoming Events</h4>
+
+        <div class="upcoming-event">
+          <div class="event-dot"></div>
+          <div class="event-info">
+            <strong>CSE Reunion 2026</strong>
+            <span>July 15, 2026 &bull; Main Auditorium</span>
+          </div>
+        </div>
+
+        <div class="upcoming-event">
+          <div class="event-dot"></div>
+          <div class="event-info">
+            <strong>Alumni Talk Series</strong>
+            <span>July 22, 2026 &bull; Seminar Hall</span>
+          </div>
+        </div>
+
+        <div class="upcoming-event">
+          <div class="event-dot"></div>
+          <div class="event-info">
+            <strong>Picnic &amp; Sports Day</strong>
+            <span>August 5, 2026 &bull; TBA</span>
+          </div>
+        </div>
+
+        <div class="upcoming-event">
+          <div class="event-dot"></div>
+          <div class="event-info">
+            <strong>Project Showcase</strong>
+            <span>August 20, 2026 &bull; CS Lab</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div id="contact" class="contact-bg">
+  <div class="section">
+    <div class="section-header">
+      <h3>Contact &amp; Social Links</h3>
+      <span class="tag">Connect</span>
+    </div>
+    <div class="contact-grid">
+
+      <div class="contact-card">
+        <h4>Batch Representatives</h4>
+        <a class="contact-link" href="#">
+          <div class="contact-icon">📞</div>
+          CR: Rahim Uddin
+        </a>
+        <a class="contact-link" href="#">
+          <div class="contact-icon">📞</div>
+          ACR: Karim Hassan
+        </a>
+        <a class="contact-link" href="mailto:cse19batch@university.edu">
+          <div class="contact-icon">✉️</div>
+          cse19batch@university.edu
+        </a>
+      </div>
+
+      <div class="contact-card">
+        <h4>Social Media</h4>
+        <a class="contact-link" href="#">
+          <div class="contact-icon" style="background:#1877f2;">f</div>
+          Facebook Group
+        </a>
+        <a class="contact-link" href="#">
+          <div class="contact-icon" style="background:#25d366;">💬</div>
+          WhatsApp Group
+        </a>
+        <a class="contact-link" href="#">
+          <div class="contact-icon" style="background:#0077b5;">in</div>
+          LinkedIn Page
+        </a>
+      </div>
+
+      <div class="contact-card">
+        <h4>Department Office</h4>
+        <a class="contact-link" href="#">
+          <div class="contact-icon">🏢</div>
+          Room 301, CS Building
+        </a>
+        <a class="contact-link" href="#">
+          <div class="contact-icon">🕐</div>
+          Sun–Thu, 9 AM – 5 PM
+        </a>
+        <a class="contact-link" href="mailto:dept.cse@university.edu">
+          <div class="contact-icon">✉️</div>
+          dept.cse@university.edu
+        </a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div><strong>CSE Batch 2019</strong> &mdash; Department of Computer Science &amp; Engineering</div>
+  <div class="footer-rule"></div>
+  <div>Built with pride by Batch &rsquo;19 &nbsp;&bull;&nbsp; Session 2019&ndash;2023</div>
+</footer>
+
+<!-- LIGHTBOX -->
+<div id="lightbox">
+  <button class="lb-close" onclick="closeLightbox()">&times;</button>
+  <button class="lb-prev" onclick="prevPhoto()">&#8592;</button>
+  <div id="lbContent"></div>
+  <p id="lbCaption"></p>
+  <button class="lb-next" onclick="nextPhoto()">&#8594;</button>
+</div>
+
+<!-- BACK TO TOP -->
+<button id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" style="
+  position:fixed; bottom:30px; right:30px;
+  background:#1a2744; color:#d4a017;
+  border:2px solid #d4a017;
+  width:44px; height:44px;
+  font-size:1.1rem; cursor:pointer;
+  display:none; z-index:999;
+">▲</button>
+<!-- const html =-->
+    <div class="notice-item">
+      <div class="notice-date">
+        <span class="day">${day}</span>
+        <span class="month">${month}</span>
+      </div>
+      <div class="notice-body">
+        <h4>${title}</h4>
+        <p>${desc}</p>
+        <span class="notice-pill ${type}">${type.charAt(0).toUpperCase() + type.slice(1)}</span>
+        <button onclick="this.closest('.notice-item').remove()" style="
+          margin-left:8px; background:#8b1a1a; color:white;
+          border:none; padding:2px 8px; font-size:0.7rem; cursor:pointer;">
+          🗑️ Delete
+        </button>
+      </div>
+    </div>`;
+<script src="script.js"></script>
+</body>
+</html>
